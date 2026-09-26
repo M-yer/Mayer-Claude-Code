@@ -1,0 +1,39 @@
+{
+  "model": "sonnet",
+  "effortLevel": "high",
+  "theme": "dark",
+  "autoCompactEnabled": true,
+  "autoContinueAtUsageLimit": true,
+  "skillOverrides": {
+    "some-noisy-skill": "off"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/keyword-context.py\" 2>/dev/null || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "everything-claude-code@everything-claude-code": true,
+    "vercel@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "everything-claude-code": { "source": { "source": "github", "repo": "affaan-m/everything-claude-code" } },
+    "claude-plugins-official": { "source": { "source": "github", "repo": "anthropics/claude-plugins-official" } }
+  },
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp",
+      "headers": { "Authorization": "Bearer ${SUPABASE_TOKEN}" }
+    }
+  }
+}

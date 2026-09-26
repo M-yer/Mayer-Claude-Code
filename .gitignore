@@ -1,0 +1,6 @@
+.env
+*.local.json
+!templates/*.example.json
+.credentials.json
+graphify-out/
+node_modules/
